@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MSNA-Mode</title><style>
+  :root{ --bg:#0a0908; --ink:#f4ecda; --gold:#d4af37; --gold-bright:#f3d474; --gold-deep:#8a6c1f; --ink-dim:#b9ac95; color-scheme:dark; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    background: radial-gradient(ellipse 900px 600px at 50% 30%, rgba(212,175,55,.10), transparent 60%), var(--bg);
+    color:var(--ink);
+    font-family:'Segoe UI', Helvetica, Arial, sans-serif;
+    display:flex; align-items:center; justify-content:center; min-height:100%;
+    padding: max(24px, env(safe-area-inset-top,0px)) max(20px, env(safe-area-inset-right,0px)) max(24px, env(safe-area-inset-bottom,0px)) max(20px, env(safe-area-inset-left,0px));
+  }
+  .card{ text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.6rem; max-width:360px; }
+  .card img{ width:56px; height:56px; object-fit:contain; }
+  .card h1{ font-size:1.1rem; letter-spacing:.3em; margin:0; font-weight:500; }
+  .card h1 b{ color:var(--gold-bright); font-weight:500; }
+  .langs{ display:flex; gap:.75rem; }
+  .langs a{ text-decoration:none; color:var(--ink); border:1px solid rgba(212,175,55,.3); padding:.7em 1.3em; border-radius:2px; font-size:.75rem; letter-spacing:.14em; transition: border-color .2s ease, color .2s ease; }
+  .langs a:hover{ border-color: var(--gold); color: var(--gold-bright); }
+  .note{ color: var(--ink-dim); font-size:.72rem; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="assets/logo-mark.png" alt="MSNA emblem">
+    <h1>MSNA <b>MODE</b></h1>
+    <div class="langs">
+      <a href="en/">English</a>
+      <a href="nl/">Nederlands</a>
+      <a href="fr/">Fran&ccedil;ais</a>
+    </div>
+    <p class="note">Redirecting to English&hellip;</p>
+  </div>
+  <script>
+    (function(){
+      try{
+        var l = (navigator.language || 'en').toLowerCase();
+        var target = 'en/';
+        if (l.indexOf('nl') === 0) target = 'nl/';
+        else if (l.indexOf('fr') === 0) target = 'fr/';
+        window.location.replace(target);
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
